@@ -7,6 +7,13 @@ class HomeController extends Controller {
     const { ctx } = this;
     ctx.body = 'hi, egg';
   }
+
+  async todos() {
+    console.log('=== todos ===');
+    await this.ctx.render('todos.tpl', {
+      pathPrefix: '/public/todos/'
+    });
+  }
 }
 
 module.exports = HomeController;

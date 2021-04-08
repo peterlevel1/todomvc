@@ -6,4 +6,12 @@ module.exports = {
   // static: {
   //   enable: true,
   // }
+  nunjucks: {
+    enable: false,
+    package: 'egg-view-nunjucks',
+  },
+  ejs: {
+    enable: true,
+    package: 'egg-view-ejs',
+  }
 };
