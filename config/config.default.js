@@ -21,12 +21,21 @@ module.exports = appInfo => {
   // add your user config here
   const userConfig = {
     myAppName: 'todos',
-    
+
     view: {
       defaultViewEngine: 'ejs',
       mapping: {
         '.tpl': 'ejs',
       },
+    },
+
+    sequelize: {
+      dialect: 'sqlite', // support: mysql, mariadb, postgres, mssql
+      storage: __dirname + '/database/todos.sqlite',
+      define: {
+        timestamps: true,
+        underscored: false,
+      }
     }
   };
 

@@ -9,7 +9,6 @@ class HomeController extends Controller {
   }
 
   async todos() {
-    console.log('=== todos ===');
     await this.ctx.render('todos.tpl', {
       pathPrefix: '/public/todos/'
     });

@@ -1,5 +1,4 @@
 /*global Vue, todoStorage */
-
 (function (exports) {
 
 	'use strict';
@@ -27,10 +26,28 @@
 
 		// app initial state
 		data: {
-			todos: todoStorage.fetch(),
+			// todos: todoStorage.fetch(),
+			todos: [],
 			newTodo: '',
 			editedTodo: null,
 			visibility: 'all'
+		},
+
+		mounted() {
+			this.$nextTick(function () {
+				// Code that will run only after the
+				// entire view has been rendered
+				const that = this;
+
+				todoStorage.fetch().then(({ data }) => {
+					if (!data || !data.success) {
+						console.log('fetch failed');
+						return;
+					}
+
+					that.todos = data.data;
+				})
+			});
 		},
 
 		// watch todos change for localStorage persistence
@@ -70,13 +87,15 @@
 				return word + (count === 1 ? '' : 's');
 			},
 
-			addTodo: function () {
+			addTodo() {
 				var value = this.newTodo && this.newTodo.trim();
 				if (!value) {
 					return;
 				}
+
 				// TODO: Use a proper UUID instead of `Date.now()`.
-				this.todos.push({ id: Date.now(), title: value, completed: false });
+				// this.todos.push({ id: Date.now(), title: value, completed: false });
+				this.todos.push({ title: value, completed: false });
 				this.newTodo = '';
 			},
 

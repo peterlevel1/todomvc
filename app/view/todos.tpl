@@ -46,6 +46,9 @@
 			<p>Written by <a href="http://evanyou.me">Evan You</a></p>
 			<p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
 		</footer>
+		
+		<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
+		<script src="https://cdn.bootcdn.net/ajax/libs/js-cookie/latest/js.cookie.min.js"></script>
 		<script src="<%= pathPrefix %>node_modules/todomvc-common/base.js"></script>
 		<script src="<%= pathPrefix %>node_modules/director/build/director.js"></script>
 		<script src="<%= pathPrefix %>node_modules/vue/dist/vue.js"></script>
